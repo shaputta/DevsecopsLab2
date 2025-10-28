@@ -28,7 +28,8 @@ pipeline {
                         # Ensure we're in the root where sonar-project.properties exists
                         cd ${WORKSPACE}
                         sonar-scanner \
-                          -Dsonar.login=$SONAR_TOKEN
+                        -Dsonar.projectBaseDir=python-app \
+                        -Dsonar.login=$SONAR_TOKEN
                     '''
                 }
             }
