@@ -5,7 +5,7 @@ pipeline {
     environment {
         DOCKERHUB_USER = 'shaputtalab1'
         IMAGE_NAME = 'jenkins-ubuntu-lab'
-        SONARQUBE = 'SonarCloud'
+        SONARQUBE = 'sha-sq'
         SONAR_TOKEN = credentials('sha-sonar-token')
     }
     stages {
@@ -28,7 +28,7 @@ pipeline {
                 }
             }
         }
-        
+
         stage('Clean up image and container') {
             steps {
                 script {
