@@ -17,7 +17,7 @@ pipeline {
 
          stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarCloud') {
+                withSonarQubeEnv('sha-sq') {
                     sh '''
                         # Ensure we're in the root where sonar-project.properties exists
                         cd ${WORKSPACE}
