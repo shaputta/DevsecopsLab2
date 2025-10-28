@@ -5,7 +5,7 @@ pipeline {
     environment {
         DOCKERHUB_USER = 'shaputtalab1'
         IMAGE_NAME = 'jenkins-ubuntu-lab'
-        SONARQUBE = 'sha-sq'
+        SONARQUBE_SERVER = 'sha-sq'
         SONAR_TOKEN = credentials('sha-sonar-token')
     }
     stages {
@@ -14,6 +14,12 @@ pipeline {
                 checkout scm
             }
         }
+
+        stage('Install dependencies') {
+    steps {
+        sh 'pip3 install -r requirements.txt'
+    }
+}
 
          stage('SonarQube Analysis') {
             steps {
